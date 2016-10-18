@@ -1,4 +1,11 @@
 
 $base : #62b1f0;
+$white : #f4f4f4;
 
-$avatar_url_1: "../assets/1.jpg"
+.font-white{
+  color: $white !important;
+}
+
+.container{
+  text-align: center;
+}

@@ -3,14 +3,13 @@
  */
 
 import React, {Component} from 'react'
-import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeProvider'
 
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import Avatar from 'material-ui/Avatar'
+import FlatButton from 'material-ui/FlatButton'
+import s from 'material-ui/'
 
-import './Login.scss';
-
-class Login extends Component {
+class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,18 +25,17 @@ class Login extends Component {
 
     render() {
         return (
-            <MuiThemeProvider>
-                <Toolbar className="nav">
-                    <ToolbarGroup firstChild={true}>
-                        <Avatar src={require("../../assets/1.jpg")} />
-                    </ToolbarGroup>
-                    <ToolbarGroup>
-
-                    </ToolbarGroup>
-                </Toolbar>
-            </MuiThemeProvider>
+            <Toolbar>
+                <ToolbarGroup>
+                    <ToolbarTitle text="Sports Mate"/>
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <FlatButton label="contact" primary={true}/>
+                    <FlatButton label="about" primary={true}/>
+                </ToolbarGroup>
+            </Toolbar>
         );
     }
 }
 
-export default Login
+export default Header
