@@ -14,8 +14,7 @@ class LoginCard extends Component{
 
     render(){
         return (
-            <div className="container">
-                <Paper className="card" zDepth={2}>
+                <Paper className="login-card" zDepth={2}>
                     <TextField
                         hintText="username"
                         fullWidth={true}
@@ -29,15 +28,14 @@ class LoginCard extends Component{
                         fullWidth={true}
                         label="login"
                         primary={true}
-                        className="button"
+                        className="login-button"
                     />
                     <RaisedButton
                         fullWidth={true}
                         label="sign up"
-                        className="button"
+                        className="login-button"
                     />
                 </Paper>
-            </div>
         );
     }
 }

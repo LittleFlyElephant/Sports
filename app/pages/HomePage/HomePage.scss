@@ -1,0 +1,24 @@
+
+.home-sidebar{
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.home-main{
+  flex-basis: 0;
+  flex-grow: 2;
+}
+
+.home-right{
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.home-right-container{
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.home-paper{
+  margin: 40px 10px 10px 10px;
+}

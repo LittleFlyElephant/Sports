@@ -5,9 +5,16 @@
 import React, {Component} from 'react'
 
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import Avatar from 'material-ui/Avatar'
 import FlatButton from 'material-ui/FlatButton'
-import s from 'material-ui/'
+import IconButton from 'material-ui/IconButton'
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import Avatar from 'material-ui/Avatar'
+
+import ActionHome from 'material-ui/svg-icons/action/home'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
+var avatar = require('../../assets/1.jpg');
 
 class Header extends Component {
     constructor(props) {
@@ -24,18 +31,49 @@ class Header extends Component {
     }
 
     render() {
-        return (
-            <Toolbar>
-                <ToolbarGroup>
-                    <ToolbarTitle text="Sports Mate"/>
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <FlatButton label="contact" primary={true}/>
-                    <FlatButton label="about" primary={true}/>
-                </ToolbarGroup>
-            </Toolbar>
-        );
+        let isLogin = this.props.isLogin;
+        if (isLogin){
+            return (
+                <Toolbar>
+                    <ToolbarGroup>
+                        <ToolbarTitle text="Sports Mate"/>
+                    </ToolbarGroup>
+                    <ToolbarGroup>
+                        <FlatButton label="contact" primary={true}/>
+                        <FlatButton label="about" primary={true}/>
+                    </ToolbarGroup>
+                </Toolbar>
+            );
+        } else {
+            return (
+                <Toolbar>
+                    <ToolbarGroup>
+                        <IconButton style={{alignSelf: 'center'}}>
+                            <ActionHome />
+                        </IconButton>
+                        <ToolbarTitle text="Sports Mate"/>
+                    </ToolbarGroup>
+                    <ToolbarGroup lastChild={true}>
+                        <ToolbarTitle text="Raychen" />
+                        <Avatar src={avatar} style={{alignSelf: 'center'}} />
+                        <IconMenu
+                            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                            targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                            style={{alignSelf: 'center'}}
+                        >
+                            <MenuItem primaryText="Settings" />
+                            <MenuItem primaryText="Logout" />
+                        </IconMenu>
+                    </ToolbarGroup>
+                </Toolbar>
+            );
+        }
     }
 }
+
+Header.propTypes = {
+    isLogin: React.PropTypes.bool
+};
 
 export default Header
