@@ -1,0 +1,8 @@
+
+@import "../common";
+@import "../../vars";
+
+.container{
+  @extend .common-card;
+  background-color: $base;
+}

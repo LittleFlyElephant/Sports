@@ -7,21 +7,61 @@ import Badge from 'material-ui/Badge'
 import Avatar from 'material-ui/Avatar'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
+import IconMenu from 'material-ui/IconMenu'
+import IconButton from 'material-ui/IconButton'
+import MenuItem from 'material-ui/MenuItem'
+
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+
+import s from './FriendCard.scss'
 
 class FriendCard extends Component{
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            openMenu: false
+        };
+        this.handleOpenMenu = this.handleOpenMenu.bind(this);
+        this.handleOnRequestChange = this.handleOnRequestChange.bind(this);
+    }
+
+    handleOpenMenu() {
+        this.setState({
+            openMenu: true
+        });
+    };
+
+    handleOnRequestChange (value) {
+        this.setState({
+            openMenu: value
+        });
+    }
+
     render(){
         return (
-            <Paper>
+            <Paper className={s.container}>
                 <Badge
+                    className={s.badge}
                     badgeContent={4}
                     primary={true}
                 >
-                    <Avatar src={require('../../assets/7.jpg')} />
+                    <Avatar size={50} src={require('../../assets/7.jpg')} />
                 </Badge>
-                <div> raychen </div>
-                <div>日均步数</div>
-                <div>12345</div>
-                <RaisedButton label="删除" secondary={true} />
+                <div className={s.name}> raychen </div>
+                <div className={s.steps}>
+                    <div>日均步数</div>
+                    <div>12345</div>
+                </div>
+                <IconMenu
+                    className={s.menu}
+                    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                    open={this.state.openMenu}
+                    onRequestChange={this.handleOnRequestChange}
+                >
+                    <MenuItem value="1" primaryText="删除好友" />
+                    <MenuItem value="2" primaryText="查看详情" />
+                </IconMenu>
             </Paper>
         );
     }

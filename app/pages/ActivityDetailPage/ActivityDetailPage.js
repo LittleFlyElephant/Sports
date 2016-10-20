@@ -8,12 +8,12 @@ import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeP
 import Header from '../../components/Header/Header'
 import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import ListHead from '../../components/ListHead/ListHead'
 import ListDetail from '../../components/ListDetail/ListDetail'
+import ItemDetail from '../../components/ItemDetail/ItemDetail'
 
-import s from './ActivityPage.scss'
+import s from './ActivityDetailPage.scss'
 
-class ActivityPage extends Component{
+class ActivityDetailPage extends Component{
     render(){
         return (
             <MuiThemeProvider>
@@ -25,11 +25,8 @@ class ActivityPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="activity" />
                             <ListDetail />
-                            <ListDetail />
-                            <ListDetail />
-                            <ListDetail />
+                            <ItemDetail />
                         </div>
                     </div>
                 </div>
@@ -38,4 +35,4 @@ class ActivityPage extends Component{
     }
 }
 
-export default ActivityPage;
+export default ActivityDetailPage;

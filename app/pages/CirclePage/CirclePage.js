@@ -10,10 +10,11 @@ import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import ListHead from '../../components/ListHead/ListHead'
 import ListDetail from '../../components/ListDetail/ListDetail'
+import CircleCard from '../../components/CircleCard/CircleCard'
 
-import s from './ActivityPage.scss'
+import s from './CirclePage.scss'
 
-class ActivityPage extends Component{
+class CirclePage extends Component{
     render(){
         return (
             <MuiThemeProvider>
@@ -25,11 +26,12 @@ class ActivityPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="activity" />
-                            <ListDetail />
-                            <ListDetail />
-                            <ListDetail />
-                            <ListDetail />
+                            <ListHead type="circle" />
+                            <div className={s.cards}>
+                                <CircleCard />
+                                <CircleCard />
+                                <CircleCard />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -38,4 +40,4 @@ class ActivityPage extends Component{
     }
 }
 
-export default ActivityPage;
+export default CirclePage;

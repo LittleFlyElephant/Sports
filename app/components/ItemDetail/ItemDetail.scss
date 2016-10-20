@@ -1,0 +1,21 @@
+@import "../common";
+
+.container{
+  padding: 20px 15px 30px 15px;
+  @extend .common-card;
+}
+
+.description{
+
+}
+
+.list{
+  display: flex;
+  flex-direction: row;
+}
+
+.name, .steps, .energy, .expr{
+  flex-basis: 0;
+  flex-grow: 1;
+  align-items: center;
+}

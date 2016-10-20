@@ -9,6 +9,13 @@
   min-width: 960px;
 }
 
+.sidebar{
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-direction: column;
+  max-width: 224px;
+}
+
 .commonContainer{
   margin: 0 30px 0 30px;
   display: flex;

@@ -1,13 +1,6 @@
 
 @import "../common";
 
-.sidebar{
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-direction: column;
-  max-width: 224px;
-}
-
 .main{
   flex-basis: 0;
   flex-grow: 2;
@@ -18,7 +11,7 @@
   flex-basis: 0;
   flex-grow: 1;
   flex-direction: column;
-  max-width: 245px;
+  max-width: 250px;
 }
 
 

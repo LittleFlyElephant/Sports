@@ -12,33 +12,35 @@ import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import {yellow600} from 'material-ui/styles/colors'
 
+import s from './ListDetail.scss'
+
 class ListDetail extends Component{
     render(){
         return (
-            <Paper className="flex">
-                <div className="flex-1" style={{alignSelf: 'center', textAlign: 'center'}}>
+            <Paper className={s.container} >
+                <div className={s.avatar} >
                     <Avatar src={require('../../assets/1.jpg')} />
                 </div>
-                <div className="flex-col flex-2" style={{alignSelf: 'center'}}>
-                    <div className="flex-1" style={{fontSize: '20px'}}>我要去运动</div>
-                    <div className="flex-1" style={{fontSize: '10px'}}>发布人:raychen</div>
+                <div className={s.title} >
+                    <div className={s.single}>我要去运动</div>
+                    <div className={s.single}>发布人:raychen</div>
                 </div>
-                <IconButton className="flex-1" style={{alignSelf: 'center'}}>
+                <IconButton className={s.type} >
                     <EditorInsertChart />
                 </IconButton>
-                <div className="flex-col flex-1" style={{alignSelf: 'center', alignItems: 'center'}}>
-                    <div className="flex-1" style={{fontSize: '15px'}}>赏金</div>
-                    <div className="flex-1" style={{fontSize: '15px'}}>$20</div>
+                <div className={s.money} >
+                    <div className={s.single}>参与人数</div>
+                    <div className={s.single}>10</div>
                 </div>
-                <div className="flex-col flex-2" style={{alignSelf: 'center', alignItems: 'center'}}>
-                    <div className="flex-1" style={{fontSize: '15px'}}>时间</div>
-                    <div className="flex-1" style={{fontSize: '15px'}}>2016-02-02 13:00</div>
+                <div className={s.time} >
+                    <div className={s.single}>时间</div>
+                    <div className={s.single}>2016-02-02 13:00</div>
                 </div>
-                <div className="flex-1" style={{alignSelf: 'center', textAlign: 'center'}}>
-                    <FlatButton label="5" style={{minWidth: 'none', backgroundColor: "#62b1f0"}} />
+                <div className={s.people} >
+                    <FlatButton label="$5" className={s.btn} />
                 </div>
-                <div className="flex-1" style={{alignSelf: 'center', alignItems: 'center'}}>
-                    <FlatButton label="参加" style={{minWidth: 'none'}} />
+                <div className={s.joinIn} >
+                    <FlatButton label="参加" className={s.btn} primary={true} />
                 </div>
             </Paper>
         );

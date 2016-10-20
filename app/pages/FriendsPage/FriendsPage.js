@@ -9,11 +9,11 @@ import Header from '../../components/Header/Header'
 import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import ListHead from '../../components/ListHead/ListHead'
-import ListDetail from '../../components/ListDetail/ListDetail'
+import FriendCard from '../../components/FriendCard/FriendCard'
 
-import s from './ActivityPage.scss'
+import s from './FriendsPage.scss'
 
-class ActivityPage extends Component{
+class FriendsPage extends Component{
     render(){
         return (
             <MuiThemeProvider>
@@ -25,11 +25,12 @@ class ActivityPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="activity" />
-                            <ListDetail />
-                            <ListDetail />
-                            <ListDetail />
-                            <ListDetail />
+                            <ListHead type="friends" />
+                            <div className={s.cards}>
+                                <FriendCard />
+                                <FriendCard />
+                                <FriendCard />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -38,4 +39,4 @@ class ActivityPage extends Component{
     }
 }
 
-export default ActivityPage;
+export default FriendsPage;

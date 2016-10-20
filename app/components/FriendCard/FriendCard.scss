@@ -1,0 +1,31 @@
+@import "../common";
+
+.container{
+  @extend .common-card;
+  width: 45.5%;
+  min-height: 80px;
+  margin: 20px 15px 0 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.badge{
+  margin-left: 10px;
+  max-width: 50px;
+  padding: 10px 10px 10px 10px !important;
+}
+
+.name, .steps{
+  flex-basis: 0;
+  flex-grow: 2;
+}
+
+.badge, .menu{
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.steps{
+  text-align: center;
+}

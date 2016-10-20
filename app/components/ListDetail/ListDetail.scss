@@ -1,0 +1,49 @@
+
+@import "../common";
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.container{
+  @extend .common-card;
+  @extend .flex-center;
+  flex-direction: row;
+  height: 60px;
+}
+
+.avatar, .type, .people, .joinIn, .single{
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.title{
+  flex-basis: 0;
+  flex-grow: 2;
+  .single{
+    text-align: left;
+  }
+}
+
+.money{
+  @extend .flex-center;
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+  flex-direction: column;
+}
+
+.time{
+  @extend .flex-center;
+  flex-basis: 0;
+  flex-grow: 2;
+  text-align: center;
+  flex-direction: column;
+}
+
+.btn{
+  min-width: 0 !important;
+}
