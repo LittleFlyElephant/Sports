@@ -1,21 +1,5 @@
+@import "common";
 
-.container{
+.b-container{
   width: 300px;
-}
-
-.flex{
-  display: flex;
-  flex-direction: row;
-}
-.flex-3{
-  flex-basis: 0;
-  flex-grow: 3;
-}
-.flex-1{
-  flex-basis: 0;
-  flex-grow: 1;
-}
-.flex-col{
-  display: flex;
-  flex-direction: column;
 }

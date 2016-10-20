@@ -1,24 +1,24 @@
 
-.home-sidebar{
-  flex-basis: 0;
-  flex-grow: 1;
-}
+@import "../common";
 
-.home-main{
-  flex-basis: 0;
-  flex-grow: 2;
-}
-
-.home-right{
+.sidebar{
   flex-basis: 0;
   flex-grow: 1;
   flex-direction: column;
-}
-.home-right-container{
-  flex-basis: 0;
-  flex-grow: 1;
+  max-width: 224px;
 }
 
-.home-paper{
-  margin: 40px 10px 10px 10px;
+.main{
+  flex-basis: 0;
+  flex-grow: 2;
+  max-width: 550px;
 }
+
+.right{
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-direction: column;
+  max-width: 245px;
+}
+
+

@@ -8,16 +8,16 @@ import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeP
 import Header from '../../components/Header/Header'
 import LoginCard from '../../components/LoginCard/LoginCard'
 
-import '../common.scss'
+import s from './LoginPage.scss'
 
 class LoginPage extends Component {
 
     render(){
         return(
             <MuiThemeProvider>
-                <div className="root">
+                <div className={s.root}>
                     <Header isLogin={true} />
-                    <div className="container">
+                    <div className={s.container}>
                         <LoginCard />
                     </div>
                 </div>

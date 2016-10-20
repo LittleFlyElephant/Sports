@@ -9,14 +9,14 @@ import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider';
 
-import './RankCard.scss'
+import s from './RankCard.scss'
 
 class RankCard extends Component{
     render(){
         let ava1 = require('../../assets/1.jpg');
         let ava2 = require('../../assets/3.jpg');
         return (
-            <Paper className="rank-paper">
+            <Paper className={s.container}>
                 <List>
                     <Subheader>Today's ranking</Subheader>
                     <ListItem

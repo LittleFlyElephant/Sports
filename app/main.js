@@ -11,6 +11,8 @@ import Base from './pages/base'
 import Greeter from './tests/Greeter'
 import {LikeButton} from './tests/Test'
 
+import s from './main.scss'
+
 injectTapEventPlugin();
 render((
     <Router history={browserHistory}>

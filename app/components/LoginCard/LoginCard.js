@@ -8,13 +8,13 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import './LoginCard.scss'
+import style from './LoginCard.scss'
 
 class LoginCard extends Component{
 
     render(){
         return (
-                <Paper className="login-card" zDepth={2}>
+                <Paper className={style.card} zDepth={2}>
                     <TextField
                         hintText="username"
                         fullWidth={true}
@@ -28,12 +28,12 @@ class LoginCard extends Component{
                         fullWidth={true}
                         label="login"
                         primary={true}
-                        className="login-button"
+                        className={style.btn}
                     />
                     <RaisedButton
                         fullWidth={true}
                         label="sign up"
-                        className="login-button"
+                        className={style.btn}
                     />
                 </Paper>
         );

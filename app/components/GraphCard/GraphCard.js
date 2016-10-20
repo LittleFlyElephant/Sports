@@ -9,15 +9,36 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import FlatButton from 'material-ui/FlatButton'
 
+import ReactEcharts from 'echarts-for-react'
+
+import s from './GraphCard.scss'
+
+const opt = {
+    title: { text: '今日运动情况' },
+    tooltip: {},
+    xAxis: {
+        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    },
+    yAxis: {},
+    series: [{
+        name: '销量',
+        type: 'bar',
+        data: [5, 20, 36, 10, 10, 20]
+    }]
+};
+
 class GraphCard extends Component{
     render(){
         return (
-            <Paper>
+            <Paper className={s.container}>
                 <Card>
-                    <CardMedia
-                        overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-                    >
-                        <img src={require('../../assets/4.jpg')} />
+                    <CardMedia>
+                        <div>
+                            <ReactEcharts
+                                option={opt}
+                                style={{height: '350px', width: '100%'}}
+                                 />
+                        </div>
                     </CardMedia>
                     <CardText>
                         <Table>

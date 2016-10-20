@@ -1,0 +1,16 @@
+@import "../common";
+
+.container{
+  @extend .common-card;
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+
+.badge{
+  padding: 10px 10px 10px 10px !important;
+  margin-bottom: 10px;
+}
+
+.name{
+  font-size: 18px;
+}

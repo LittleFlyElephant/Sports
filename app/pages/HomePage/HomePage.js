@@ -5,35 +5,34 @@ import React, {Component} from 'react'
 import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeProvider'
 
 import Header from '../../components/Header/Header'
+import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import RankCard from '../../components/RankCard/RankCard'
 import GraphCard from '../../components/GraphCard/GraphCard'
 
-import './HomePage.scss'
-import '../common.scss'
+import s from './HomePage.scss'
 
-class HomePage extends Component{
-    render(){
+class HomePage extends Component {
+    render() {
         return (
-          <MuiThemeProvider>
-              <div className="root">
-                  <Header isLogin={false} />
-                  <div className="container-center">
-                      <div className="home-sidebar">
-                          <Sidebar />
-                      </div>
-                      <div className="home-main home-paper">
-                          <GraphCard />
-                      </div>
-                      <div className="home-right">
-                          <div className="home-right-container">
-                              <RankCard />
-                              <RankCard />
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </MuiThemeProvider>
+            <MuiThemeProvider>
+                <div className={s.root}>
+                    <Header isLogin={false}/>
+                    <div className={s.commonContainer}>
+                        <div className={s.sidebar}>
+                            <SideHead />
+                            <Sidebar />
+                        </div>
+                        <div className={s.main}>
+                            <GraphCard />
+                        </div>
+                        <div className={s.right}>
+                            <RankCard />
+                            <RankCard />
+                        </div>
+                    </div>
+                </div>
+            </MuiThemeProvider>
         );
     }
 }

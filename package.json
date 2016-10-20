@@ -29,6 +29,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "echarts-for-react": "^1.1.5",
     "material-ui": "^0.16.0",
     "mdi": "^1.7.22",
     "react": "^15.3.2",

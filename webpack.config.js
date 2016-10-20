@@ -24,12 +24,16 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css", "sass"]
+                loaders: ["style?modules", "css?modules", "sass?modules"]
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+                loader: 'style!css?modules'//跟前面相比就在后面加上了?modules
             },
+            //{
+            //    test: /\.css$/,
+            //    loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            //},
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: [

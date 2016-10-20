@@ -14,7 +14,7 @@ import Avatar from 'material-ui/Avatar'
 import ActionHome from 'material-ui/svg-icons/action/home'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-var avatar = require('../../assets/1.jpg');
+import s from './Header.scss'
 
 class Header extends Component {
     constructor(props) {
@@ -26,21 +26,22 @@ class Header extends Component {
     }
 
     handleChange(event, index, value) {
-        console.log('in');
         this.setState({value: value});
     }
 
     render() {
         let isLogin = this.props.isLogin;
+        var avatar = require('../../assets/1.jpg');
         if (isLogin){
             return (
                 <Toolbar>
                     <ToolbarGroup>
+                        <Avatar className={s.avatar} src={require('../../assets/8.jpg')}/>
                         <ToolbarTitle text="Sports Mate"/>
                     </ToolbarGroup>
                     <ToolbarGroup>
-                        <FlatButton label="contact" primary={true}/>
-                        <FlatButton label="about" primary={true}/>
+                        <FlatButton className={s.btn} label="contact" primary={true}/>
+                        <FlatButton className={s.btn} label="about" primary={true}/>
                     </ToolbarGroup>
                 </Toolbar>
             );
@@ -48,9 +49,7 @@ class Header extends Component {
             return (
                 <Toolbar>
                     <ToolbarGroup>
-                        <IconButton style={{alignSelf: 'center'}}>
-                            <ActionHome />
-                        </IconButton>
+                        <Avatar className={s.avatar} src={require('../../assets/8.jpg')}/>
                         <ToolbarTitle text="Sports Mate"/>
                     </ToolbarGroup>
                     <ToolbarGroup lastChild={true}>

@@ -52,7 +52,7 @@ class Base extends Component {
                             <FriendCard />
                         </div>
                     </div>
-                    <div className="container">
+                    <div className="b-container">
                         <PersonalCard />
                         <LoginCard />
                         <GraphCard />
