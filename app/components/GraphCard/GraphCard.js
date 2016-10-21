@@ -14,25 +14,75 @@ import ReactEcharts from 'echarts-for-react'
 import s from './GraphCard.scss'
 
 const opt = {
-    title: { text: '今日运动情况' },
-    tooltip: {},
-    xAxis: {
-        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    title: {
+        text: '折线图堆叠'
     },
-    yAxis: {},
-    series: [{
-        name: '销量',
-        type: 'bar',
-        data: [5, 20, 36, 10, 10, 20]
-    }]
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['cr','cdn','muen','canhai','zai']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'cr',
+            type:'line',
+            stack: '总量',
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'cdn',
+            type:'line',
+            stack: '总量',
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'muen',
+            type:'line',
+            stack: '总量',
+            data:[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'canhai',
+            type:'line',
+            stack: '总量',
+            data:[320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name:'zai',
+            type:'line',
+            stack: '总量',
+            data:[820, 932, 901, 934, 1290, 1330, 1320]
+        }
+    ]
 };
+
 
 class GraphCard extends Component{
     render(){
         return (
             <Paper className={s.container}>
-                <Card>
-                    <CardMedia>
+                <Card className={s.card}>
+                    <CardMedia className={s.cardPic}>
                         <div>
                             <ReactEcharts
                                 option={opt}
@@ -40,9 +90,10 @@ class GraphCard extends Component{
                                  />
                         </div>
                     </CardMedia>
-                    <CardText>
+                    <CardText className={s.table}>
                         <Table>
                             <TableBody
+                                className={s.body}
                                 displayRowCheckbox={false}
                             >
                                 <TableRow key={1}>

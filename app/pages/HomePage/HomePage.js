@@ -11,11 +11,12 @@ import RankCard from '../../components/RankCard/RankCard'
 import GraphCard from '../../components/GraphCard/GraphCard'
 
 import s from './HomePage.scss'
+import {myTheme} from '../../config'
 
 class HomePage extends Component {
     render() {
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
                     <Header isLogin={false}/>
                     <div className={s.commonContainer}>

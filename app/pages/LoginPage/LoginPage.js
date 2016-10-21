@@ -10,11 +10,13 @@ import LoginCard from '../../components/LoginCard/LoginCard'
 
 import s from './LoginPage.scss'
 
+import {myTheme} from '../../config'
+
 class LoginPage extends Component {
 
     render(){
         return(
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
                     <Header isLogin={true} />
                     <div className={s.container}>

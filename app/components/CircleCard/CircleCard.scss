@@ -1,48 +1,54 @@
 
 @import "../common";
 
-.container{
-  @extend .common-card;
+.backImg{
+  background-image: url("../../assets/7.jpg");
+  background-size: 100%;
   width: 45.5%;
   margin: 20px 15px 0 15px;
 }
 
-.badge{
-  padding: 10px 10px 10px 10px !important;
-}
+.container{
+  background-color: rgba(0,0,0,0.5) !important;
+  width: 100%;
 
-.head{
-  display: flex !important;
-  align-items: center;
-}
+  .badge{
+    padding: 10px 10px 10px 10px !important;
+  }
 
-.content, .footer{
-  padding: 0 20px 10px 20px !important;
-}
+  .head{
+    display: flex !important;
+    align-items: center;
+  }
 
-.footer{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  .content, .footer{
+    padding: 0 20px 10px 20px !important;
+  }
 
-.left{
-  flex-basis: 0;
-  flex-grow: 3;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  .footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.btn, .member{
-  flex-basis: 0;
-  flex-grow: 1;
-}
-.avatars{
-  flex-basis: 0;
-  flex-grow: 3;
-}
+  .left{
+    flex-basis: 0;
+    flex-grow: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.avatar{
-  margin-right: -15px;
+  .btn, .member{
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+  .avatars{
+    flex-basis: 0;
+    flex-grow: 3;
+  }
+
+  .avatar{
+    margin-right: -15px;
+  }
 }

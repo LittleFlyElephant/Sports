@@ -14,6 +14,11 @@ import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 
 import s from './FriendCard.scss'
+import {greenDark2} from '../../config'
+
+const menuStyle = {
+    backgroundColor: greenDark2
+};
 
 class FriendCard extends Component{
     constructor(props) {
@@ -40,29 +45,32 @@ class FriendCard extends Component{
 
     render(){
         return (
-            <Paper className={s.container}>
-                <Badge
-                    className={s.badge}
-                    badgeContent={4}
-                    primary={true}
-                >
-                    <Avatar size={50} src={require('../../assets/7.jpg')} />
-                </Badge>
-                <div className={s.name}> raychen </div>
-                <div className={s.steps}>
-                    <div>日均步数</div>
-                    <div>12345</div>
-                </div>
-                <IconMenu
-                    className={s.menu}
-                    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                    open={this.state.openMenu}
-                    onRequestChange={this.handleOnRequestChange}
-                >
-                    <MenuItem value="1" primaryText="删除好友" />
-                    <MenuItem value="2" primaryText="查看详情" />
-                </IconMenu>
-            </Paper>
+            <div className={s.backImg}>
+                <Paper className={s.container}>
+                    <Badge
+                        className={s.badge}
+                        badgeContent={4}
+                        primary={true}
+                    >
+                        <Avatar size={50} src={require('../../assets/7.jpg')} />
+                    </Badge>
+                    <div className={s.name}> raychen </div>
+                    <div className={s.steps}>
+                        <div>日均步数</div>
+                        <div>12345</div>
+                    </div>
+                    <IconMenu
+                        menuStyle={menuStyle}
+                        className={s.menu}
+                        iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                        open={this.state.openMenu}
+                        onRequestChange={this.handleOnRequestChange}
+                    >
+                        <MenuItem value="1" primaryText="删除好友" />
+                        <MenuItem value="2" primaryText="查看详情" />
+                    </IconMenu>
+                </Paper>
+            </div>
         );
     }
 }

@@ -13,11 +13,12 @@ import ListDetail from '../../components/ListDetail/ListDetail'
 import CircleCard from '../../components/CircleCard/CircleCard'
 
 import s from './CirclePage.scss'
+import {myTheme} from '../../config'
 
 class CirclePage extends Component{
     render(){
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
                     <Header isLogin={false} />
                     <div className={s.commonContainer}>

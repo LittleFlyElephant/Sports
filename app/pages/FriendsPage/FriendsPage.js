@@ -12,11 +12,12 @@ import ListHead from '../../components/ListHead/ListHead'
 import FriendCard from '../../components/FriendCard/FriendCard'
 
 import s from './FriendsPage.scss'
+import {myTheme} from '../../config'
 
 class FriendsPage extends Component{
     render(){
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
                     <Header isLogin={false} />
                     <div className={s.commonContainer}>

@@ -1,4 +1,4 @@
-
+@import "../../vars";
 @import "../common";
 
 .flex-center{
@@ -8,42 +8,43 @@
 }
 
 .container{
+  background-color: $green-dark-2 !important;
   @extend .common-card;
   @extend .flex-center;
   flex-direction: row;
   height: 60px;
-}
 
-.avatar, .type, .people, .joinIn, .single{
-  flex-basis: 0;
-  flex-grow: 1;
-  text-align: center;
-}
-
-.title{
-  flex-basis: 0;
-  flex-grow: 2;
-  .single{
-    text-align: left;
+  .avatar, .type, .people, .joinIn, .single{
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
   }
-}
 
-.money{
-  @extend .flex-center;
-  flex-basis: 0;
-  flex-grow: 1;
-  text-align: center;
-  flex-direction: column;
-}
+  .title{
+    flex-basis: 0;
+    flex-grow: 2;
+    .single{
+      text-align: left;
+    }
+  }
 
-.time{
-  @extend .flex-center;
-  flex-basis: 0;
-  flex-grow: 2;
-  text-align: center;
-  flex-direction: column;
-}
+  .money{
+    @extend .flex-center;
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+    flex-direction: column;
+  }
 
-.btn{
-  min-width: 0 !important;
+  .time{
+    @extend .flex-center;
+    flex-basis: 0;
+    flex-grow: 2;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .btn{
+    min-width: 0 !important;
+  }
 }

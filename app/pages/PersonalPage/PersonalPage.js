@@ -10,11 +10,13 @@ import PersonalCard from '../../components/PersonalCard/PersonalCard'
 
 import s from './PersonalPage.scss'
 
+import {myTheme} from '../../config'
+
 class PersonalPage extends Component {
 
     render(){
         return(
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
                     <Header isLogin={false} />
                     <div className={s.container}>

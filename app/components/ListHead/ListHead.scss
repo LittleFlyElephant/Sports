@@ -3,6 +3,15 @@
 @import "../../vars";
 
 .container{
+  background-color: $green-dark-3 !important;
   @extend .common-card;
-  background-color: $base;
+
+  .title{
+    color: white !important;
+  }
+}
+
+.btn{
+  margin-left: 10px;
+  margin-right: 10px;
 }

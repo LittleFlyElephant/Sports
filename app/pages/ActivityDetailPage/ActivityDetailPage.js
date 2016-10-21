@@ -12,11 +12,12 @@ import ListDetail from '../../components/ListDetail/ListDetail'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 
 import s from './ActivityDetailPage.scss'
+import {myTheme} from '../../config'
 
 class ActivityDetailPage extends Component{
     render(){
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
                     <Header isLogin={false} />
                     <div className={s.commonContainer}>

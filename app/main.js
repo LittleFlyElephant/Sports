@@ -11,6 +11,7 @@ import CirclePage from './pages/CirclePage/CirclePage'
 import FriendsPage from './pages/FriendsPage/FriendsPage'
 import PersonalPage from './pages/PersonalPage/PersonalPage'
 import ActivityDetailPage from './pages/ActivityDetailPage/ActivityDetailPage'
+import RegisterPage from './pages/RegisterPage/RegisterPage'
 import Base from './pages/base'
 
 import Greeter from './tests/Greeter'
@@ -22,6 +23,7 @@ injectTapEventPlugin();
 render((
     <Router history={browserHistory}>
         <Route path="/login" component={LoginPage}/>
+        <Route path="/register" component={RegisterPage}/>
         <Route path="/home" component={HomePage}/>
         <Route path="/activity" component={ActivityPage}/>
         <Route path="/circle" component={CirclePage}/>

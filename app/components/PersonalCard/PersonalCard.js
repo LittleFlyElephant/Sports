@@ -22,62 +22,64 @@ class PersonalCard extends Component{
         };
         let defaultDate = new Date();
         return (
-            <Paper className={s.container}>
-                <div className={s.wrapper}>
-                    <Badge
-                        className={s.badge}
-                        badgeStyle={badgeInside}
-                        badgeContent={4}
-                        primary={true}
-                    >
-                        <Avatar size={120} src={require('../../assets/7.jpg')} />
-                    </Badge>
-                    <div className={s.name}>
-                        <TextField
-                            hintText="username"
-                            inputStyle={{textAlign:'center'}}
-                            defaultValue="Raychen"
-                            fullWidth={true}
-                        />
-                    </div>
-                    <div className={s.list}>
-                        <div className={s.listItem}>
-                            <p className={s.itemLeft}>
-                                email:
-                            </p>
+            <div className={s.backImg}>
+                <Paper className={s.container}>
+                    <div className={s.wrapper}>
+                        <Badge
+                            className={s.badge}
+                            badgeStyle={badgeInside}
+                            badgeContent={4}
+                            primary={true}
+                        >
+                            <Avatar size={120} src={require('../../assets/7.jpg')} />
+                        </Badge>
+                        <div className={s.name}>
                             <TextField
-                                hintText="email"
-                                className={s.itemRight}
-                                defaultValue="1395314348@qq.com"
+                                hintText="username"
+                                inputStyle={{textAlign:'center'}}
+                                defaultValue="Raychen"
                                 fullWidth={true}
                             />
                         </div>
-                        <div className={s.listItem}>
-                            <p className={s.itemLeft}>
-                                phone:
-                            </p>
-                            <TextField
-                                hintText="phone"
-                                className={s.itemRight}
-                                defaultValue="13989728911"
-                                fullWidth={true}
-                            />
+                        <div className={s.list}>
+                            <div className={s.listItem}>
+                                <p className={s.itemLeft}>
+                                    email:
+                                </p>
+                                <TextField
+                                    hintText="email"
+                                    className={s.itemRight}
+                                    defaultValue="1395314348@qq.com"
+                                    fullWidth={true}
+                                />
+                            </div>
+                            <div className={s.listItem}>
+                                <p className={s.itemLeft}>
+                                    phone:
+                                </p>
+                                <TextField
+                                    hintText="phone"
+                                    className={s.itemRight}
+                                    defaultValue="13989728911"
+                                    fullWidth={true}
+                                />
+                            </div>
+                            <div className={s.listItem}>
+                                <p className={s.itemLeft}>
+                                    birth:
+                                </p>
+                                <DatePicker
+                                    hintText="date"
+                                    className={s.itemRight}
+                                    defaultDate={defaultDate}
+                                    fullWidth={true}
+                                />
+                            </div>
                         </div>
-                        <div className={s.listItem}>
-                            <p className={s.itemLeft}>
-                                birth:
-                            </p>
-                            <DatePicker
-                                hintText="date"
-                                className={s.itemRight}
-                                defaultDate={defaultDate}
-                                fullWidth={true}
-                            />
-                        </div>
+                        <FlatButton className={s.btn} label="save" secondary={true} />
                     </div>
-                    <FlatButton className={s.btn} label="save" secondary={true} />
-                </div>
-            </Paper>
+                </Paper>
+            </div>
         );
     }
 }
