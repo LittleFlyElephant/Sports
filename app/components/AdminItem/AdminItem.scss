@@ -1,0 +1,6 @@
+@import "../../vars";
+@import "../common";
+
+.container{
+  @extend .common-card;
+}

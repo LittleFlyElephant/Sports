@@ -58,6 +58,22 @@ CREATE TABLE `tbl_record` (
   `step` INT(11) NOT NULL,
   `type` INT(11) NOT NULL,
   `energy` INT(11) NOT NULL,
+  `time` DATETIME NOT NULL,
+  `createdAt` DATETIME NOT NULL,
+  `updatedAt` DATETIME NOT NULL,
+  `deletedAt` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY (`userId`),
+  FOREIGN KEY (`userId`) REFERENCES `tbl_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `tbl_today`;
+CREATE TABLE `tbl_today` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` INT(11) NOT NULL,
+  `step` INT(11) NOT NULL,
+  `type` INT(11) NOT NULL,
+  `energy` INT(11) NOT NULL,
   `timeBegin` DATETIME NOT NULL,
   `timeEnd` DATETIME NOT NULL,
   `createdAt` DATETIME NOT NULL,
@@ -86,6 +102,26 @@ CREATE TABLE `tbl_join_activity` (
   FOREIGN KEY (`activityId`) REFERENCES `tbl_activity`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `tbl_activity_comments`;
+CREATE TABLE `tbl_activity_comments` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` INT(11) NOT NULL,
+  `rootId` INT(11) NOT NULL,
+  `parentId` INT(11) DEFAULT NULL,
+  `type` INT(2) NOT NULL,
+  `content` VARCHAR(255) NOT NULL,
+  `createdAt` DATETIME NOT NULL,
+  `updatedAt` DATETIME NOT NULL,
+  `deletedAt` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY (`userId`),
+  KEY (`rootId`),
+  KEY (`parentId`),
+  FOREIGN KEY (`userId`) REFERENCES `tbl_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`rootId`) REFERENCES `tbl_activity`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`parentId`) REFERENCES `tbl_activity_comments`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `tbl_join_circle`;
 CREATE TABLE `tbl_join_circle` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -94,6 +130,7 @@ CREATE TABLE `tbl_join_circle` (
   `step` INT(11) NOT NULL,
   `expDiff` INT(11) NOT NULL,
   `contri` INT(11) NOT NULL,
+  `topicNum` INT(11) NOT NULL,
   `createdAt` DATETIME NOT NULL,
   `updatedAt` DATETIME NOT NULL,
   `deletedAt` DATETIME DEFAULT NULL,
@@ -104,20 +141,42 @@ CREATE TABLE `tbl_join_circle` (
   FOREIGN KEY (`circleId`) REFERENCES `tbl_circle`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `tbl_friend`;
-CREATE TABLE `tbl_friend` (
+DROP TABLE IF EXISTS `tbl_circle_topic`;
+CREATE TABLE `tbl_circle_topic` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `userId` INT(11) NOT NULL,
-  `friendId` INT(11) NOT NULL,
-  `value` INT(11) NOT NULL,
+  `circleId` INT(11) NOT NULL,
+  `type` INT(2) NOT NULL,
+  `content` VARCHAR(255) NOT NULL,
+  `commentNum` INT(11) NOT NULL,
   `createdAt` DATETIME NOT NULL,
   `updatedAt` DATETIME NOT NULL,
   `deletedAt` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY (`userId`),
-  KEY (`friendId`),
+  KEY (`circleId`),
   FOREIGN KEY (`userId`) REFERENCES `tbl_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`friendId`) REFERENCES `tbl_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (`circleId`) REFERENCES `tbl_circle`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `tbl_circle_comments`;
+CREATE TABLE `tbl_circle_comments` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` INT(11) NOT NULL,
+  `rootId` INT(11) NOT NULL,
+  `parentId` INT(11) DEFAULT NULL,
+  `type` INT(2) NOT NULL,
+  `content` VARCHAR(255) NOT NULL,
+  `createdAt` DATETIME NOT NULL,
+  `updatedAt` DATETIME NOT NULL,
+  `deletedAt` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY (`userId`),
+  KEY (`rootId`),
+  KEY (`parentId`),
+  FOREIGN KEY (`userId`) REFERENCES `tbl_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`rootId`) REFERENCES `tbl_circle_topic`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`parentId`) REFERENCES `tbl_circle_comments`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `tbl_fan`;
@@ -182,3 +241,5 @@ CREATE TABLE `tbl_news` (
 # INSERT INTO `test1` VALUES (1);
 # INSERT INTO `test2` VALUES (3, 1);
 # DELETE FROM `test1`;
+ALTER TABLE tbl_user ADD accessToken VARCHAR(255) DEFAULT NULL;
+ALTER TABLE tbl_user ADD deviceId VARCHAR(255) DEFAULT NULL;

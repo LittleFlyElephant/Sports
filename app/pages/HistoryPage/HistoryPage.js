@@ -1,36 +1,37 @@
 /**
- * Created by raychen on 2016/10/20.
+ * Created by raychen on 2016/11/3.
  */
-
 import React, {Component} from 'react'
 import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeProvider'
 
 import Header from '../../components/Header/Header'
 import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import ListHead from '../../components/ListHead/ListHead'
-import ListDetail from '../../components/ListDetail/ListDetail'
+import RankCard from '../../components/RankCard/RankCard'
+import StepCard from '../../components/StepCard/StepCard'
+import SleepCard from '../../components/SleepCard/SleepCard'
 
-import s from './ActivityPage.scss'
+import s from './HistoryPage.scss'
 import {myTheme} from '../../config'
 
-class ActivityPage extends Component{
-    render(){
+class HistoryPage extends Component {
+    render() {
         return (
             <MuiThemeProvider muiTheme={myTheme}>
                 <div className={s.root}>
-                    <Header isLogin={false} />
+                    <Header isLogin={false}/>
                     <div className={s.commonContainer}>
                         <div className={s.sidebar}>
                             <SideHead />
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="activity" />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
+                            <StepCard />
+                            <SleepCard />
+                        </div>
+                        <div className={s.right}>
+                            <RankCard type="rank" />
+                            <RankCard type="rank" />
                         </div>
                     </div>
                 </div>
@@ -39,4 +40,4 @@ class ActivityPage extends Component{
     }
 }
 
-export default ActivityPage;
+export default HistoryPage;

@@ -99,6 +99,11 @@ class ListHead extends Component {
                 <ToolbarGroup>
                     <ToolbarTitle className={s.title} text="Friends"/>
                 </ToolbarGroup>;
+        }else if (this.props.type == "news"){
+            group1 =
+                <ToolbarGroup>
+                    <ToolbarTitle className={s.title} text="News"/>
+                </ToolbarGroup>;
         }
         return (
             <Toolbar className={s.container}>

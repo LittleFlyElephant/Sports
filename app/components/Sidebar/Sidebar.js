@@ -25,44 +25,37 @@ class Sidebar extends Component {
         return (
             <Paper className={s.paper} zDepth={1}>
                 <Menu autoWidth={true}>
-                    <Link to="/home">
-                        <MenuItem primaryText="今日运动"
-                                  focusState="focused"
-                                  leftIcon={<Run color={white1} />}
-                                  rightIcon={<ArrowDropRight color={white1} />}
-                        />
-                    </Link>
-                    <Link to="/home">
-                        <MenuItem primaryText="历史记录"
-                                  leftIcon={<History color={white1} />}
-                                  rightIcon={<ArrowDropRight color={white1} />}
-                        />
-                    </Link>
-
-                    <Link to="/activity">
-                        <MenuItem primaryText="活动管理"
-                                  leftIcon={<Activity color={white1} />}
-                                  rightIcon={<ArrowDropRight color={white1} />}
-                        />
-                    </Link>
-                    <Link to="/circle">
-                        <MenuItem primaryText="圈子管理"
-                                  leftIcon={<Circle color={white1} />}
-                                  rightIcon={<ArrowDropRight color={white1} />}
-                        />
-                    </Link>
-                    <Link to="/friends">
-                        <MenuItem primaryText="我的好友"
-                                  leftIcon={<Friends color={white1} />}
-                                  rightIcon={<ArrowDropRight color={white1} />}
-                        />
-                    </Link>
-                    <Link to="/friends">
-                        <MenuItem primaryText="我的粉丝"
-                                  leftIcon={<Fans color={white1} />}
-                                  rightIcon={<ArrowDropRight color={white1} />}
-                        />
-                    </Link>
+                    <MenuItem primaryText="今日运动"
+                              focusState="focused"
+                              leftIcon={<Run color={white1} />}
+                              rightIcon={<ArrowDropRight color={white1} />}
+                              containerElement={<Link to='/home' />}
+                    />
+                    <MenuItem primaryText="历史记录"
+                              leftIcon={<History color={white1} />}
+                              rightIcon={<ArrowDropRight color={white1} />}
+                              containerElement={<Link to='/home' />}
+                    />
+                    <MenuItem primaryText="活动管理"
+                              leftIcon={<Activity color={white1} />}
+                              rightIcon={<ArrowDropRight color={white1} />}
+                              containerElement={<Link to='/activity' />}
+                    />
+                    <MenuItem primaryText="圈子管理"
+                              leftIcon={<Circle color={white1} />}
+                              rightIcon={<ArrowDropRight color={white1} />}
+                              containerElement={<Link to='/circle' />}
+                    />
+                    <MenuItem primaryText="我的关注"
+                              leftIcon={<Friends color={white1} />}
+                              rightIcon={<ArrowDropRight color={white1} />}
+                              containerElement={<Link to='/friends' />}
+                    />
+                    <MenuItem primaryText="最近动态"
+                              leftIcon={<Friends color={white1} />}
+                              rightIcon={<ArrowDropRight color={white1} />}
+                              containerElement={<Link to='/news' />}
+                    />
                 </Menu>
             </Paper>
         );

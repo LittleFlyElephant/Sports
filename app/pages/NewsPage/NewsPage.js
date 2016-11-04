@@ -11,7 +11,7 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import ListHead from '../../components/ListHead/ListHead'
 import ListDetail from '../../components/ListDetail/ListDetail'
 
-import s from './ActivityPage.scss'
+import s from './NewsPage.scss'
 import {myTheme} from '../../config'
 
 class ActivityPage extends Component{
@@ -26,11 +26,11 @@ class ActivityPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="activity" />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
+                            <ListHead type="news" />
+                            <ListDetail type={2} />
+                            <ListDetail type={2} />
+                            <ListDetail type={2} />
+                            <ListDetail type={2} />
                         </div>
                     </div>
                 </div>
@@ -39,4 +39,6 @@ class ActivityPage extends Component{
     }
 }
 
-export default ActivityPage;
+export default ActivityPage;/**
+ * Created by raychen on 2016/11/3.
+ */

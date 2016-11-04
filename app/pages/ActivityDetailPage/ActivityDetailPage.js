@@ -26,7 +26,7 @@ class ActivityDetailPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListDetail />
+                            <ListDetail type={1} />
                             <ItemDetail />
                         </div>
                     </div>

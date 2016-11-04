@@ -8,7 +8,8 @@ import Header from '../../components/Header/Header'
 import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import RankCard from '../../components/RankCard/RankCard'
-import GraphCard from '../../components/GraphCard/GraphCard'
+import StepCard from '../../components/StepCard/StepCard'
+import SleepCard from '../../components/SleepCard/SleepCard'
 
 import s from './HomePage.scss'
 import {myTheme} from '../../config'
@@ -25,11 +26,12 @@ class HomePage extends Component {
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <GraphCard />
+                            <StepCard />
+                            <SleepCard />
                         </div>
                         <div className={s.right}>
-                            <RankCard />
-                            <RankCard />
+                            <RankCard type="rank" />
+                            <RankCard type="news" />
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import MuiThemeProvider from '../../node_modules/material-ui/styles/MuiThemeProv
 
 import Header from '../components/Header/Header'
 import LoginCard from '../components/LoginCard/LoginCard'
-import GraphCard from '../components/GraphCard/GraphCard'
+import GraphCard from '../components/StepCard/StepCard'
 import RankCard from '../components/RankCard/RankCard'
 import Sidebar from '../components/Sidebar/Sidebar'
 import DialogCard from '../components/Dialog/Dialog'

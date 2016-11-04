@@ -16,37 +16,66 @@ import {yellow600} from 'material-ui/styles/colors'
 import s from './ListDetail.scss'
 
 class ListDetail extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
-        return (
-            <Link to="/activity-detail">
-                <Paper className={s.container}>
-                    <div className={s.avatar}>
-                        <Avatar src={require('../../assets/1.jpg')}/>
-                    </div>
-                    <div className={s.title}>
-                        <div className={s.single}>我要去运动</div>
-                        <div className={s.single}>发布人:raychen</div>
-                    </div>
-                    <IconButton className={s.type}>
-                        <EditorInsertChart />
-                    </IconButton>
-                    <div className={s.money}>
-                        <div className={s.single}>参与人数</div>
-                        <div className={s.single}>10</div>
-                    </div>
-                    <div className={s.time}>
-                        <div className={s.single}>时间</div>
-                        <div className={s.single}>2016-02-02 13:00</div>
-                    </div>
-                    <div className={s.people}>
-                        <FlatButton label="$5" className={s.btn}/>
-                    </div>
-                    <div className={s.joinIn}>
-                        <FlatButton label="参加" className={s.btn} primary={true}/>
-                    </div>
-                </Paper>
-            </Link>
-        );
+        let type = this.props.type;
+        switch (type){
+            case 1: //activity
+                return (
+                    <Link to="/activity-detail">
+                        <Paper className={s.container}>
+                            <div className={s.avatar}>
+                                <Avatar src={require('../../assets/1.jpg')}/>
+                            </div>
+                            <div className={s.title}>
+                                <div className={s.single}>我要去运动</div>
+                                <div className={s.single}>发布人:raychen</div>
+                            </div>
+                            <IconButton className={s.type}>
+                                <EditorInsertChart />
+                            </IconButton>
+                            <div className={s.money}>
+                                <div className={s.single}>参与人数</div>
+                                <div className={s.single}>10</div>
+                            </div>
+                            <div className={s.time}>
+                                <div className={s.single}>时间</div>
+                                <div className={s.single}>2016-02-02 13:00</div>
+                            </div>
+                            <div className={s.people}>
+                                <FlatButton label="$5" className={s.btn}/>
+                            </div>
+                            <div className={s.joinIn}>
+                                <FlatButton label="参加" className={s.btn} primary={true}/>
+                            </div>
+                        </Paper>
+                    </Link>
+                );
+            case 2: //dynamic
+                return (
+                    <Paper className={s.container}>
+                        <div className={s.avatar}>
+                            <Avatar src={require('../../assets/1.jpg')}/>
+                        </div>
+                        <div className={s.name}>
+                            raychen
+                        </div>
+                        <IconButton className={s.type}>
+                            <EditorInsertChart />
+                        </IconButton>
+                        <div className={s.content}>
+                            参加了活动: 我要去跑步
+                        </div>
+                        <div className={s.time}>
+                            <div className={s.single}>3 minutes ago</div>
+                        </div>
+                    </Paper>
+                );
+        }
+
     }
 }
 

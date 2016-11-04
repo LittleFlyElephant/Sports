@@ -34,7 +34,7 @@ export const myTheme = getMuiTheme({
         accent3Color: grey500,
         textColor: white,
         canvasColor: darkBlack,
-        disabledColor: grey400,
+        disabledColor: grey400
     },
     fontFamily: '\'Segoe UI\', \'HelveticaNeue-Light\', sans-serif',
     svgIcon: {
