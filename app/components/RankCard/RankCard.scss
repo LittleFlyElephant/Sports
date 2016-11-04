@@ -4,4 +4,27 @@
 .container{
   background-color: $blue !important;
   @extend .common-card;
+  padding: 15px;
+  .head{
+    @extend .common-font-large;
+    height: 30px;
+  }
+  .item{
+    margin-top: 5px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .avatar{
+      margin: 0 10px;
+    }
+    .content{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      .subcontent{
+        @extend .common-font-small
+      }
+    }
+  }
 }

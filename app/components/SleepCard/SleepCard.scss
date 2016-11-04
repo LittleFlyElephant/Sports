@@ -1,0 +1,31 @@
+@import "../../vars";
+@import "../common";
+
+.container{
+  @extend .common-card;
+  display: flex;
+  flex-direction: row;
+  background-color: $blue !important;
+  padding: 10px;
+  .left{
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-direction: column;
+    .title{
+      @extend .common-font-large;
+      margin-bottom: 10px;
+    }
+    .info{
+      margin-top: 10px;
+      flex-direction: row;
+      .info_left, .info_right{
+        flex-basis: 0;
+        flex-grow: 1;
+      }
+    }
+  }
+  .graph{
+    flex-basis: 0;
+    flex-grow: 2;
+  }
+}

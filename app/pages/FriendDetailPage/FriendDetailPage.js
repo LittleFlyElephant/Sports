@@ -1,5 +1,5 @@
 /**
- * Created by raychen on 2016/10/20.
+ * Created by raychen on 2016/11/3.
  */
 
 import React, {Component} from 'react'
@@ -8,13 +8,13 @@ import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeP
 import Header from '../../components/Header/Header'
 import SideHead from '../../components/SideHead/SideHead'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import ListHead from '../../components/ListHead/ListHead'
 import ListDetail from '../../components/ListDetail/ListDetail'
+import ItemDetail from '../../components/ItemDetail/ItemDetail'
 
-import s from './ActivityPage.scss'
+import s from './FriendDetailPage.scss'
 import {myTheme} from '../../config'
 
-class ActivityPage extends Component{
+class FriendDetailPage extends Component{
     render(){
         return (
             <MuiThemeProvider muiTheme={myTheme}>
@@ -26,11 +26,8 @@ class ActivityPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="activity" />
                             <ListDetail type={1} />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
-                            <ListDetail type={1} />
+                            <ItemDetail />
                         </div>
                     </div>
                 </div>
@@ -39,4 +36,4 @@ class ActivityPage extends Component{
     }
 }
 
-export default ActivityPage;
+export default FriendDetailPage;

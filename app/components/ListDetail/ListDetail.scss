@@ -14,10 +14,20 @@
   flex-direction: row;
   height: 60px;
 
-  .avatar, .type, .people, .joinIn, .single{
+  .avatar, .type, .people, .joinIn, .single, .name{
     flex-basis: 0;
     flex-grow: 1;
     text-align: center;
+  }
+
+  .name{
+    text-align: left;
+  }
+
+  .content{
+    flex-basis: 0;
+    flex-grow: 5;
+    text-align: left;
   }
 
   .title{
