@@ -10,6 +10,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField'
 import DatePicker from 'material-ui/DatePicker'
 
+import s from './Dialog.scss'
+
 class DialogCard extends Component{
     constructor(props){
         super(props);
@@ -56,6 +58,7 @@ class DialogCard extends Component{
                     <TextField
                         floatingLabelText="活动名称"
                         hintText="活动名称"
+                        className={s.input}
                     />
                     <TextField
                         floatingLabelText="赏金"

@@ -21,47 +21,59 @@ class RankCard extends Component {
         super(props);
     }
 
-    render() {
-        let ava1 = require('../../assets/1.jpg');
-        let ava2 = require('../../assets/3.jpg');
-        let type = this.props.type;
-        let title = "Today's Rank";
-        let content =
-            <div className={s.name}> raychen </div>;
-        if (type == "news"){
-            title = "Recent Activities";
-            content =
-                <div className={s.content}>
-                    <div>我要去运动</div>
-                    <div className={s.subcontent}>发布人: cdn</div>
-                </div>
+    renderRankItems() {
+        let flowData = this.props.data;
+        if (flowData.length > 0) {
+            let flowItems = flowData.map(flowItem => {
+                switch(this.props.type) {
+                    case 'rank':
+                        return (
+                            <div className={s.item}>
+                                <Badge
+                                    style={badgeInside}
+                                    badgeContent={flowItem.number}
+                                    primary={true}
+                                >
+                                </Badge>
+                                <Avatar className={s.avatar} size={40} src={require("../../assets/"+flowItem.avatar)}/>
+                                <div className={s.name}> {flowItem.username} </div>
+                            </div>
+                        );
+                    case 'news':
+                        return (
+                            <div className={s.item}>
+                                <Badge
+                                    style={badgeInside}
+                                    badgeContent={flowItem.number}
+                                    primary={true}
+                                >
+                                </Badge>
+                                <Avatar className={s.avatar} size={40} src={require("../../assets/"+flowItem.avatar)}/>
+                                <div className={s.content}>
+                                    <div>{flowItem.title}</div>
+                                    <div className={s.subcontent}>发布人: {flowItem.username}</div>
+                                </div>
+                            </div>
+                        );
+                    default:
+                        return;
+                }
+            });
+            return flowItems
+        } else {
+            return;
         }
+    };
+
+    render() {
+        let title = this.props.title;
         return (
             <Paper className={s.container}>
                 <div className={s.head}>
                     {title}
                 </div>
                 <Divider />
-                <div className={s.item}>
-                    <Badge
-                        style={badgeInside}
-                        badgeContent={1}
-                        primary={true}
-                    >
-                    </Badge>
-                    <Avatar className={s.avatar} size={40} src={require('../../assets/7.jpg')}/>
-                    {content}
-                </div>
-                <div className={s.item}>
-                    <Badge
-                        style={badgeInside}
-                        badgeContent={2}
-                        primary={true}
-                    >
-                    </Badge>
-                    <Avatar className={s.avatar} size={40} src={require('../../assets/5.jpg')}/>
-                    {content}
-                </div>
+                {this.renderRankItems()}
             </Paper>
         );
     }

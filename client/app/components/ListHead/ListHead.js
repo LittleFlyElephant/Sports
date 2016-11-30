@@ -52,7 +52,7 @@ class ListHead extends Component {
         ];
         let group1 =
             <ToolbarGroup>
-                <ToolbarTitle className={s.title} text="Activities"/>
+                <ToolbarTitle className={s.title} text={this.props.title}/>
                 <IconButton style={{alignSelf: 'center'}} onTouchTap={this.handleOpen}>
                     <Addbox />
                 </IconButton>
@@ -70,14 +70,17 @@ class ListHead extends Component {
                     <TextField
                         floatingLabelText="活动名称"
                         hintText="活动名称"
+                        className={s.input}
                     />
                     <TextField
                         floatingLabelText="赏金"
                         hintText="赏金"
+                        className={s.input}
                     />
                     <DatePicker
                         floatingLabelText="选择时间"
                         hintText="选择时间"
+                        className={s.input}
                     />
                     <TextField
                         hintText="简介"
@@ -86,23 +89,14 @@ class ListHead extends Component {
                         multiLine={true}
                         rows={3}
                         rowsMax={4}
+                        className={s.input}
                     />
                 </Dialog>
             </ToolbarGroup>;
-        if (this.props.type == "circle") {
+        if (this.props.title != "Activities") {
             group1 =
                 <ToolbarGroup>
-                    <ToolbarTitle className={s.title} text="Circles"/>
-                </ToolbarGroup>;
-        }else if (this.props.type == "friends"){
-            group1 =
-                <ToolbarGroup>
-                    <ToolbarTitle className={s.title} text="Friends"/>
-                </ToolbarGroup>;
-        }else if (this.props.type == "news"){
-            group1 =
-                <ToolbarGroup>
-                    <ToolbarTitle className={s.title} text="News"/>
+                    <ToolbarTitle className={s.title} text={this.props.title}/>
                 </ToolbarGroup>;
         }
         return (

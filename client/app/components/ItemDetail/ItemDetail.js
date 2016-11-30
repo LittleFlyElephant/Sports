@@ -12,69 +12,46 @@ import Avatar from 'material-ui/Avatar'
 import s from './ItemDetail.scss'
 
 class ItemDetail extends Component{
+
+    renderListItem(){
+        let joiners = this.props.joins;
+        if (joiners.length > 0){
+            let ret = joiners.map(joiner => {
+                return (
+                    <div className={s.list}>
+                        <div className={s.names}>
+                            <FlatButton className={s.rank} label={joiner.rank} />
+                            <div className={s.avatar}>
+                                <Avatar size={30} src={require("../../assets/"+joiner.avatar)}/>
+                            </div>
+                            <div className={s.name}> {joiner.user} </div>
+                        </div>
+                        <div className={s.steps}>
+                            <p>步数: &nbsp;{joiner.step}</p>
+                        </div>
+                        <div className={s.energy}>
+                            <p>能量: &nbsp;{joiner.energy}k</p>
+                        </div>
+                        <div className={s.expr}>
+                            <p>Exp {joiner.expdiff>0?"+":""}{joiner.expdiff} </p>
+                        </div>
+                    </div>
+                );
+            });
+            return ret;
+        }
+    }
+
     render(){
         return (
             <div className={s.backImg}>
                 <Paper className={s.container}>
                     <div className={s.description}>
                         <p>
-                            简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍简要介绍
+                            {this.props.des}
                         </p>
                     </div>
-                    <div className={s.list}>
-                        <div className={s.names}>
-                            <FlatButton className={s.rank} label="1" />
-                            <div className={s.avatar}>
-                                <Avatar size={30} src={require('../../assets/1.jpg')}/>
-                            </div>
-                            <div className={s.name}> raychen </div>
-                        </div>
-                        <div className={s.steps}>
-                            <p>步数: &nbsp;12983</p>
-                        </div>
-                        <div className={s.energy}>
-                            <p>能量: &nbsp;1238k</p>
-                        </div>
-                        <div className={s.expr}>
-                            <p>Exp +100</p>
-                        </div>
-                    </div>
-                    <div className={s.list}>
-                        <div className={s.names}>
-                            <FlatButton className={s.rank} label="1" />
-                            <div className={s.avatar}>
-                                <Avatar size={30} src={require('../../assets/1.jpg')}/>
-                            </div>
-                            <div className={s.name}> raychen </div>
-                        </div>
-                        <div className={s.steps}>
-                            <p>步数: &nbsp;12983</p>
-                        </div>
-                        <div className={s.energy}>
-                            <p>能量: &nbsp;1238k</p>
-                        </div>
-                        <div className={s.expr}>
-                            <p>Exp +100</p>
-                        </div>
-                    </div>
-                    <div className={s.list}>
-                        <div className={s.names}>
-                            <FlatButton className={s.rank} label="1" />
-                            <div className={s.avatar}>
-                                <Avatar size={30} src={require('../../assets/1.jpg')}/>
-                            </div>
-                            <div className={s.name}> raychen </div>
-                        </div>
-                        <div className={s.steps}>
-                            <p>步数: &nbsp;12983</p>
-                        </div>
-                        <div className={s.energy}>
-                            <p>能量: &nbsp;1238k</p>
-                        </div>
-                        <div className={s.expr}>
-                            <p>Exp +100</p>
-                        </div>
-                    </div>
+                    {this.renderListItem()}
                 </Paper>
             </div>
         );

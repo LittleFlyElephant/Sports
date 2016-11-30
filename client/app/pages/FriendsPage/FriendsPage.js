@@ -26,7 +26,7 @@ class FriendsPage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="friends" />
+                            <ListHead title="Friends" />
                             <div className={s.cards}>
                                 <FriendCard />
                                 <FriendCard />

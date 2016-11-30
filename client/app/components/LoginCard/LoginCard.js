@@ -13,39 +13,50 @@ import s from './LoginCard.scss'
 import {blueDark, blue, blueLight} from '../../config'
 import {darkBlack} from 'material-ui/styles/colors'
 
-class LoginCard extends Component{
+class LoginCard extends Component {
 
-    render(){
+    constructor(props){
+        super(props);
+    }
+
+    handleClick(){
+        let username = this.refs.myUsername.input.value;
+        let password = this.refs.myPassword.input.value;
+        this.props.handleLogin(username, password);
+    }
+
+    render() {
         return (
-                <Paper className={s.card} zDepth={2}>
-                    <TextField
-                        inputStyle={{color: darkBlack}}
-                        hintText="username"
+            <Paper className={s.card} zDepth={2}>
+                <TextField
+                    inputStyle={{color: darkBlack}}
+                    hintText="username"
+                    fullWidth={true}
+                    ref="myUsername"
+                />
+                <TextField
+                    inputStyle={{color: darkBlack}}
+                    hintText="password"
+                    fullWidth={true}
+                    type="password"
+                    ref="myPassword"
+                />
+                <RaisedButton
+                    backgroundColor={blueDark}
+                    fullWidth={true}
+                    label="login"
+                    className={s.btn}
+                    onClick={this.handleClick.bind(this)}
+                />
+                <Link to="/register">
+                    <RaisedButton
+                        backgroundColor={blueLight}
                         fullWidth={true}
+                        label="sign up"
+                        className={s.btn}
                     />
-                    <TextField
-                        inputStyle={{color: darkBlack}}
-                        hintText="password"
-                        fullWidth={true}
-                        type="password"
-                    />
-                    <Link to="/home">
-                        <RaisedButton
-                            backgroundColor={blueDark}
-                            fullWidth={true}
-                            label="login"
-                            className={s.btn}
-                        />
-                    </Link>
-                    <Link to="/register">
-                        <RaisedButton
-                            backgroundColor={blueLight}
-                            fullWidth={true}
-                            label="sign up"
-                            className={s.btn}
-                        />
-                    </Link>
-                </Paper>
+                </Link>
+            </Paper>
         );
     }
 }

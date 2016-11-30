@@ -12,6 +12,10 @@ module.exports = {
         path: __dirname + "/public",//打包后的文件存放的地方
         filename: "bundle.js",//打包后输出文件的文件名
     },
+
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
         loaders: [
             {
@@ -20,8 +24,12 @@ module.exports = {
             },
             {
                 test: /\.js$/,
+                loader: 'babel',
                 exclude: /node_modules/,
-                loader: 'babel'
+                query: {
+                    cacheDirectory: true,
+                    presets: ['react', 'es2015']
+                }
             },
             {
                 test: /\.scss$/,

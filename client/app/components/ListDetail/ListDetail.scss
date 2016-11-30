@@ -20,6 +20,11 @@
     text-align: center;
   }
 
+  .type{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   .name{
     text-align: left;
   }
@@ -46,12 +51,15 @@
     flex-direction: column;
   }
 
-  .time{
+  .time, .level, .email{
     @extend .flex-center;
     flex-basis: 0;
     flex-grow: 2;
     text-align: center;
     flex-direction: column;
+  }
+  .email{
+    flex-grow: 3;
   }
 
   .btn{

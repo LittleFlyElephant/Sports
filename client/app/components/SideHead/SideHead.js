@@ -23,13 +23,13 @@ class SideHead extends Component{
                     <Badge
                         className={s.badge}
                         badgeStyle={badgeInside}
-                        badgeContent={4}
+                        badgeContent={this.props.level}
                         primary={true}
                     >
-                        <Avatar size={80} src={require('../../assets/7.jpg')} />
+                        <Avatar size={80} src={require("../../assets/"+this.props.avatar)} />
                     </Badge>
                 </div>
-                <div className={s.name}> raychen </div>
+                <div className={s.name}> {this.props.user} </div>
             </Paper>
         );
     }

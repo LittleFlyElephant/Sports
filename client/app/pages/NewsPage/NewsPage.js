@@ -4,6 +4,7 @@
 
 import React, {Component} from 'react'
 import MuiThemeProvider from '../../../node_modules/material-ui/styles/MuiThemeProvider'
+import cookie from 'react-cookie'
 
 import Header from '../../components/Header/Header'
 import SideHead from '../../components/SideHead/SideHead'
@@ -22,11 +23,15 @@ class ActivityPage extends Component{
                     <Header isLogin={false} />
                     <div className={s.commonContainer}>
                         <div className={s.sidebar}>
-                            <SideHead />
+                            <SideHead
+                                avatar={cookie.load('user_avatar')}
+                                user={cookie.load('user_name')}
+                                level={cookie.load('user_level')}
+                            />
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="news" />
+                            <ListHead title="News" />
                             <ListDetail type={2} />
                             <ListDetail type={2} />
                             <ListDetail type={2} />

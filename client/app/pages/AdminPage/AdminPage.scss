@@ -2,7 +2,10 @@
 @import "../common";
 
 .container{
-  min-width: 800px;
+  flex-basis: 0;
+  flex-grow: 2;
+  max-width: 800px;
+  flex-direction: column;
 }
 
 .root{

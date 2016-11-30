@@ -3,6 +3,7 @@
  */
 
 import React, {Component} from 'react'
+import cookie from 'react-cookie'
 
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton'
@@ -59,30 +60,38 @@ class Header extends Component {
                 </Toolbar>
             );
         } else {
-            return (
-                <Toolbar className={s.container}>
+            let tbgroup =
+                <ToolbarGroup>
+                    <Avatar className={s.avatar} src={require('../../assets/8.jpg')}/>
+                    <ToolbarTitle className={s.title} text="Sports Mate"/>
+                    <Link to="/home" className={s.link}>
+                        <FlatButton
+                            hoverColor= {blueDark}
+                            className={s.btn} label="Home" primary={true}/>
+                    </Link>
+                    <Link to="/activity" className={s.link}>
+                        <FlatButton
+                            hoverColor= {blueDark}
+                            className={s.btn} label="Activities" primary={true}/>
+                    </Link>
+                    <Link to="/circle" className={s.link}>
+                        <FlatButton
+                            hoverColor= {blueDark}
+                            className={s.btn} label="Circles" primary={true}/>
+                    </Link>
+                </ToolbarGroup>;
+            if (cookie.load('user_per')>1)
+                tbgroup =
                     <ToolbarGroup>
                         <Avatar className={s.avatar} src={require('../../assets/8.jpg')}/>
                         <ToolbarTitle className={s.title} text="Sports Mate"/>
-                        <Link to="/home" className={s.link}>
-                            <FlatButton
-                                hoverColor= {blueDark}
-                                className={s.btn} label="Home" primary={true}/>
-                        </Link>
-                        <Link to="/activity" className={s.link}>
-                            <FlatButton
-                                hoverColor= {blueDark}
-                                className={s.btn} label="Activities" primary={true}/>
-                        </Link>
-                        <Link to="/circle" className={s.link}>
-                            <FlatButton
-                                hoverColor= {blueDark}
-                                className={s.btn} label="Circles" primary={true}/>
-                        </Link>
-                    </ToolbarGroup>
+                    </ToolbarGroup>;
+            return (
+                <Toolbar className={s.container}>
+                    {tbgroup}
                     <ToolbarGroup lastChild={true}>
-                        <ToolbarTitle className={s.name} text="Raychen" />
-                        <Avatar src={avatar} style={{alignSelf: 'center'}} />
+                        <ToolbarTitle className={s.name} text={cookie.load('user_name')} />
+                        <Avatar src={require("../../assets/"+cookie.load('user_avatar'))} style={{alignSelf: 'center'}} />
                         <IconMenu
                             iconStyle={iconStyle}
                             menuStyle={menuStyle}

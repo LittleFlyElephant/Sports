@@ -27,7 +27,7 @@ class CirclePage extends Component{
                             <Sidebar />
                         </div>
                         <div className={s.main}>
-                            <ListHead type="circle" />
+                            <ListHead title="Circles" />
                             <div className={s.cards}>
                                 <CircleCard />
                                 <CircleCard />

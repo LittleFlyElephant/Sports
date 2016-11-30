@@ -94,9 +94,9 @@ class StepCard extends Component {
                             <div>排名</div>
                         </div>
                         <div className={s.info_right}>
-                            <div>1000</div>
-                            <div>300k</div>
-                            <div>1</div>
+                            <div>{this.props.step}</div>
+                            <div>{this.props.energy}k</div>
+                            <div>{this.props.rank}</div>
                         </div>
                     </div>
                 </div>
