@@ -44,20 +44,21 @@ class FriendCard extends Component{
     }
 
     render(){
+        let data = this.props.data;
         return (
             <div className={s.backImg}>
                 <Paper className={s.container}>
                     <Badge
                         className={s.badge}
-                        badgeContent={4}
+                        badgeContent={data.level}
                         primary={true}
                     >
-                        <Avatar size={50} src={require('../../assets/7.jpg')} />
+                        <Avatar size={50} src={require('../../assets/'+data.avatar)} />
                     </Badge>
-                    <div className={s.name}> raychen </div>
+                    <div className={s.name}> {data.user} </div>
                     <div className={s.steps}>
                         <div>日均步数</div>
-                        <div>12345</div>
+                        <div>{data.step}</div>
                     </div>
                     <IconMenu
                         menuStyle={menuStyle}

@@ -19,7 +19,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import s from './Header.scss'
 import {white1, blueLight, blueDark} from '../../config'
 
-const iconStyle={
+const iconStyle = {
     color: white1
 };
 const menuStyle = {
@@ -39,10 +39,23 @@ class Header extends Component {
         this.setState({value: value});
     }
 
+    handleLogout() {
+        cookie.remove('user_name');
+        cookie.remove('user_id');
+        cookie.remove('user_level');
+        cookie.remove('user_avatar');
+        cookie.remove('user_per');
+        window.location.href = '/login';
+    }
+
+    handleSetting() {
+        window.location.href = '/personal';
+    }
+
     render() {
         let isLogin = this.props.isLogin;
         var avatar = require('../../assets/1.jpg');
-        if (isLogin){
+        if (isLogin) {
             return (
                 <Toolbar className={s.container}>
                     <ToolbarGroup>
@@ -51,10 +64,10 @@ class Header extends Component {
                     </ToolbarGroup>
                     <ToolbarGroup>
                         <FlatButton
-                            hoverColor= {blueDark}
+                            hoverColor={blueDark}
                             className={s.btn} label="contact" primary={true}/>
                         <FlatButton
-                            hoverColor= {blueDark}
+                            hoverColor={blueDark}
                             className={s.btn} label="about" primary={true}/>
                     </ToolbarGroup>
                 </Toolbar>
@@ -66,21 +79,21 @@ class Header extends Component {
                     <ToolbarTitle className={s.title} text="Sports Mate"/>
                     <Link to="/home" className={s.link}>
                         <FlatButton
-                            hoverColor= {blueDark}
+                            hoverColor={blueDark}
                             className={s.btn} label="Home" primary={true}/>
                     </Link>
                     <Link to="/activity" className={s.link}>
                         <FlatButton
-                            hoverColor= {blueDark}
+                            hoverColor={blueDark}
                             className={s.btn} label="Activities" primary={true}/>
                     </Link>
                     <Link to="/circle" className={s.link}>
                         <FlatButton
-                            hoverColor= {blueDark}
+                            hoverColor={blueDark}
                             className={s.btn} label="Circles" primary={true}/>
                     </Link>
                 </ToolbarGroup>;
-            if (cookie.load('user_per')>1)
+            if (cookie.load('user_per') > 1)
                 tbgroup =
                     <ToolbarGroup>
                         <Avatar className={s.avatar} src={require('../../assets/8.jpg')}/>
@@ -90,8 +103,9 @@ class Header extends Component {
                 <Toolbar className={s.container}>
                     {tbgroup}
                     <ToolbarGroup lastChild={true}>
-                        <ToolbarTitle className={s.name} text={cookie.load('user_name')} />
-                        <Avatar src={require("../../assets/"+cookie.load('user_avatar'))} style={{alignSelf: 'center'}} />
+                        <ToolbarTitle className={s.name} text={cookie.load('user_name')}/>
+                        <Avatar src={require("../../assets/"+cookie.load('user_avatar'))}
+                                style={{alignSelf: 'center'}}/>
                         <IconMenu
                             iconStyle={iconStyle}
                             menuStyle={menuStyle}
@@ -100,10 +114,13 @@ class Header extends Component {
                             targetOrigin={{horizontal: 'right', vertical: 'top'}}
                             style={{alignSelf: 'center'}}
                         >
-                            <MenuItem primaryText="Settings" />
-                            <Link to="/login">
-                                <MenuItem className={s.menuItem} primaryText="Logout" />
-                            </Link>
+                            <MenuItem primaryText="Settings"
+                                      onTouchTap={this.handleSetting.bind(this)}
+                            />
+                            <MenuItem className={s.menuItem}
+                                      primaryText="Logout"
+                                      onTouchTap={this.handleLogout.bind(this)}
+                            />
                         </IconMenu>
                     </ToolbarGroup>
                 </Toolbar>
